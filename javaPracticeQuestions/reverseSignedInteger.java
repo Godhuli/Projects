@@ -11,24 +11,18 @@ public class reverseSignedInteger {
 	public int reverse(int x) {
 		int rev =0;
 		while (x!=0){
-			rev = rev*10+x%10;
-			x=x/10;
-		}
-		
-		try{
-			x = (int) (Math.pow(2, 31)-1);
-			
-		}
-		catch (InputMismatchException e){
-			System.out.println("Integer overflow");
-			return 0;
-			
-		}
-		
+		if (x > Integer.MAX_VALUE/10)
+				return 0;
+		rev = rev*10+x%10;
+		x=x/10;
+											
+		//return rev;
+	}
 		return rev;
+}
+		
 		
         
-    }
 	
 	public static void main(String[] args) {
 	System.out.println("Enter a integer");
